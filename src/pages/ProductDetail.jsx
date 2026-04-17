@@ -260,7 +260,7 @@ const ProductDetail = () => {
         <div className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
           <ArrowLeft size={16} />
         </div>
-        <span>Back to Boutique</span>
+        <span>Back to Home</span>
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">

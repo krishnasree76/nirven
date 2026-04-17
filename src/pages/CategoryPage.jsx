@@ -81,7 +81,7 @@ const CategoryPage = () => {
               <option value="popular">Most Popular Selection</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="rating">Top Rated Boutique</option>
+              <option value="rating">Top Rated </option>
             </select>
             <ChevronDown size={18} className="absolute right-5 top-1/2 -translate-y-1/2 text-primary/40 pointer-events-none group-hover:text-primary transition-colors" />
           </div>
@@ -250,7 +250,7 @@ const CategoryPage = () => {
                 onClick={() => setIsSidebarOpen(false)}
                 className="w-full btn-primary py-5 rounded-[24px] mt-10 text-lg shadow-xl shadow-primary/20"
               >
-                Apply Boutique Filters
+                Apply Filters
               </button>
             </motion.div>
           </div>

@@ -13,6 +13,7 @@ import { CartProvider } from './context/CartContext';
 import { ShoppingBag, ShoppingCart, Home as HomeIcon, User as UserIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from './context/CartContext';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -33,16 +34,16 @@ const MobileBottomBar = () => {
   return (
     <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full px-6 flex justify-center">
       <div className="w-full max-w-sm glass-card bg-white/80 backdrop-blur-3xl border-white/40 py-3 px-8 flex justify-between items-center shadow-[0_30px_60px_rgba(27,60,26,0.15)] ring-1 ring-black/5">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className={`flex flex-col items-center gap-1 transition-all duration-500 ${isActive('/') ? 'text-primary scale-110' : 'text-primary/20 hover:text-primary/40'}`}
         >
           <HomeIcon size={22} strokeWidth={isActive('/') ? 3 : 2} />
-          <span className="text-[8px] font-black uppercase tracking-[0.2em]">Boutique</span>
+          <span className="text-[8px] font-black uppercase tracking-[0.2em]">Home</span>
         </Link>
-        
-        <Link 
-          to="/cart" 
+
+        <Link
+          to="/cart"
           className="relative bg-primary text-white p-5 rounded-[24px] -mt-10 shadow-[0_20px_40px_rgba(27,60,26,0.25)] border-4 border-white active:scale-95 transition-all group overflow-hidden"
         >
           <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -53,9 +54,9 @@ const MobileBottomBar = () => {
             </span>
           )}
         </Link>
-        
-        <Link 
-          to="/profile" 
+
+        <Link
+          to="/profile"
           className={`flex flex-col items-center gap-1 transition-all duration-500 ${isActive('/profile') || isActive('/auth') ? 'text-primary scale-110' : 'text-primary/20 hover:text-primary/40'}`}
         >
           <UserIcon size={22} strokeWidth={isActive('/profile') || isActive('/auth') ? 3 : 2} />
@@ -90,6 +91,7 @@ function App() {
           </main>
           <Footer />
           <MobileBottomBar />
+          <ScrollToTopButton />
         </div>
       </Router>
     </CartProvider>

@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ArrowRight, Heart, ShoppingBag } from 'lucide-react';
+import { Star, ArrowRight, Heart, ShoppingBag, Plus } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 export const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product, 1);
+  };
   return (
     <Link 
       to={`/product/${product.id}`} 
@@ -28,13 +36,6 @@ export const ProductCard = ({ product }) => {
           )}
         </div>
 
-        {/* Quick Actions */}
-        <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
-          <button className="w-full btn-primary py-3 rounded-2xl flex items-center justify-center gap-2 backdrop-blur-md bg-primary/90">
-             <ShoppingBag size={18} />
-             <span>View Details</span>
-          </button>
-        </div>
       </div>
 
       <div className="px-2 space-y-3">
@@ -55,9 +56,13 @@ export const ProductCard = ({ product }) => {
              <p className="text-2xl font-black text-primary">£{product.price}</p>
              {product.in_offer && <p className="text-xs text-gray-300 line-through font-bold">£{(product.price * 1.2).toFixed(2)}</p>}
           </div>
-          <div className="w-8 h-8 rounded-full bg-bg-fresh flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
-             <ArrowRight size={18} strokeWidth={3} />
-          </div>
+          <button 
+            onClick={handleAddToCart}
+            className="w-10 h-10 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-500 transform hover:scale-110 active:scale-95"
+            aria-label="Add to cart"
+          >
+             <Plus size={20} strokeWidth={3} />
+          </button>
         </div>
       </div>
     </Link>
