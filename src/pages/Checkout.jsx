@@ -261,7 +261,7 @@ const Checkout = () => {
   ];
 
   return (
-    <div className="container pt-32 pb-32">
+    <div className="container pt-16 md:pt-20 pb-40">
 
       {/* HEADER */}
       <div className="flex justify-between items-center mb-10">
@@ -292,8 +292,8 @@ const Checkout = () => {
                   key={addr.id}
                   onClick={() => setSelectedAddress(addr.id)}
                   className={`p-4 rounded-xl border cursor-pointer transition ${selectedAddress === addr.id
-                      ? 'border-primary bg-primary/5'
-                      : 'border-gray-100'
+                    ? 'border-primary bg-primary/5'
+                    : 'border-gray-100'
                     }`}
                 >
                   <p className="font-black text-primary text-sm">

@@ -178,7 +178,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container pt-40 md:pt-44 pb-32">
+    <div className="container pt-16 md:pt-20 pb-40">
 
       {/* HEADER */}
       <div className="flex items-center justify-between mb-12">
