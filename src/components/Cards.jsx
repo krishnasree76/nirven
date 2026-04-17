@@ -92,3 +92,35 @@ export const CategoryCard = ({ category }) => {
     </Link>
   );
 };
+
+export const CategorySquareCard = ({ category }) => {
+  return (
+    <Link 
+      to={`/category/${category.id}`} 
+      className="group relative flex flex-col items-center gap-4 animate-fade-up"
+    >
+      <div className="relative w-full aspect-square rounded-[40px] overflow-hidden bg-white shadow-2xl shadow-primary/5 border-4 border-white transition-all duration-700 group-hover:shadow-[0_40px_80px_rgba(27,60,26,0.15)] group-hover:translate-y-[-8px]">
+        <img
+          src={category.image}
+          alt={category.name}
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        
+        {/* Hover Detail */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-primary/20 backdrop-blur-[2px]">
+           <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-xl">
+              <ShoppingBag size={20} strokeWidth={3} />
+           </div>
+        </div>
+      </div>
+      
+      <div className="text-center px-2">
+        <h3 className="text-lg font-black text-primary uppercase tracking-tight group-hover:text-secondary transition-colors duration-300">
+          {category.name}
+        </h3>
+        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">Explore Collection</p>
+      </div>
+    </Link>
+  );
+};

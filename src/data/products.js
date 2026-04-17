@@ -6,7 +6,7 @@ export const CATEGORIES = [
   { id: 'dairy', name: 'Dairy & Frozen', image: 'https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=400' },
   { id: 'beverages', name: 'Beverages', image: 'https://images.pexels.com/photos/159291/beer-machine-alcohol-brewery-159291.jpeg?auto=compress&cs=tinysrgb&w=400' },
   { id: 'ready-to-eat', name: 'Ready to Eat', image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { id: 'personal-care', name: 'Personal Care', image: 'https://images.pexels.com/photos/6621415/pexels-photo-6621415.jpeg?auto=compress&cs=tinysrgb&w=400' },
+  { id: 'personal-care', name: 'Personal Care', image: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?auto=format&fit=crop&q=80&w=800' },
 ];
 
 export const PRODUCTS = [
