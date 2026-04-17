@@ -50,8 +50,8 @@ const CategoryPage = () => {
         <h3 className={`${isMobile ? 'text-3xl' : 'text-xl'} font-black text-primary flex items-center gap-3`}>
           Filters
         </h3>
-        <button 
-          onClick={() => { setPriceRange(100); setOffersOnly(false); }} 
+        <button
+          onClick={() => { setPriceRange(100); setOffersOnly(false); }}
           className="text-[10px] font-black text-primary/30 hover:text-primary uppercase tracking-widest transition-all"
         >
           Reset All
@@ -122,23 +122,23 @@ const CategoryPage = () => {
   );
 
   return (
-    <div className="container pt-40 pb-40">
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-20">
+    <div className="container pt-16 md:pt-20 pb-40">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="space-y-4"
         >
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-secondary">Aura of Freshness</span>
+            {/* <span className="text-[10px] font-black uppercase tracking-[0.4em] text-secondary">Aura of Freshness</span> */}
             <div className="w-8 h-[1px] bg-secondary/30" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-primary leading-none">
+          <h1 className="text-3xl md:text-5xl font-black text-primary leading-tight">
             {query ? `Search: ${query}` : category ? category.name : 'Exclusive Shop'}
           </h1>
-          <p className="text-primary/40 text-sm font-bold tracking-widest uppercase">
+          {/* <p className="text-primary/40 text-sm font-bold tracking-widest uppercase">
             {filteredProducts.length} Premium results found
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="flex items-center gap-4 w-full md:w-auto">
@@ -242,7 +242,7 @@ const CategoryPage = () => {
                 onClick={() => setIsSidebarOpen(false)}
                 className="w-full btn-primary py-5 rounded-[24px] mt-10 text-lg shadow-xl shadow-primary/20"
               >
-                Apply Boutique Filters
+                Apply Filters
               </button>
             </motion.div>
           </div>
