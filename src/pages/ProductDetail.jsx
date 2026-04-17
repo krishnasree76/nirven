@@ -321,22 +321,41 @@ const ProductDetail = () => {
             </p>
           </div>
 
-          <div className="space-y-8 pt-6 border-t border-gray-100">
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-              <div className="flex items-center bg-gray-50 border border-gray-100 rounded-2xl p-2 w-full sm:w-auto">
-                <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="w-14 h-14 flex items-center justify-center text-gray-400 hover:text-primary rounded-xl hover:bg-white">
-                  <Minus size={20} strokeWidth={3} />
+          <div className="space-y-6 pt-6 border-t border-gray-100">
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+
+              {/* Quantity Stepper */}
+              <div className="flex items-center bg-gray-50 border border-gray-100 rounded-xl p-1 gap-2 w-fit mx-auto sm:mx-0">
+
+                <button
+                  onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                  className="w-9 h-9 md:w-12 md:h-12 flex items-center justify-center text-gray-400 hover:text-primary rounded-lg hover:bg-white transition-all"
+                >
+                  <Minus size={16} className="md:w-5 md:h-5" strokeWidth={3} />
                 </button>
-                <span className="w-14 text-center font-black text-xl text-primary">{quantity}</span>
-                <button onClick={() => setQuantity(q => q + 1)} className="w-14 h-14 flex items-center justify-center text-gray-400 hover:text-primary rounded-xl hover:bg-white">
-                  <Plus size={20} strokeWidth={3} />
+
+                <span className="w-8 text-center font-black text-base md:text-xl text-primary">
+                  {quantity}
+                </span>
+
+                <button
+                  onClick={() => setQuantity(q => q + 1)}
+                  className="w-9 h-9 md:w-12 md:h-12 flex items-center justify-center text-gray-400 hover:text-primary rounded-lg hover:bg-white transition-all"
+                >
+                  <Plus size={16} className="md:w-5 md:h-5" strokeWidth={3} />
                 </button>
+
               </div>
 
-              <button onClick={handleAddToCart} className="flex-1 btn-primary group !rounded-[24px] py-5 px-10 text-xl shadow-2xl shadow-primary/20 w-full hover:scale-[1.02]">
-                <ShoppingBag size={24} />
+              {/* Add to Cart */}
+              <button
+                onClick={handleAddToCart}
+                className="flex-1 btn-primary group !rounded-[24px] py-4 md:py-5 px-8 md:px-10 text-base md:text-xl shadow-2xl shadow-primary/20 w-full hover:scale-[1.02]"
+              >
+                <ShoppingBag size={20} className="md:w-6 md:h-6" />
                 <span>Add to Basket</span>
               </button>
+
             </div>
           </div>
 
