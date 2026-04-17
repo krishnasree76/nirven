@@ -44,6 +44,83 @@ const CategoryPage = () => {
     return result;
   }, [id, query, sortBy, priceRange, offersOnly]);
 
+  const FilterContent = ({ isMobile = false }) => (
+    <div className="space-y-10">
+      <div className="flex items-center justify-between pb-6 border-b border-primary/10">
+        <h3 className={`${isMobile ? 'text-3xl' : 'text-xl'} font-black text-primary flex items-center gap-3`}>
+          Filters
+        </h3>
+        <button 
+          onClick={() => { setPriceRange(100); setOffersOnly(false); }} 
+          className="text-[10px] font-black text-primary/30 hover:text-primary uppercase tracking-widest transition-all"
+        >
+          Reset All
+        </button>
+      </div>
+
+      <div className="space-y-8">
+        {/* Price Filter */}
+        <div className="space-y-6">
+          <label className="text-[10px] font-black text-primary uppercase tracking-widest block">
+            Price Ceiling (Up to £{priceRange})
+          </label>
+          <div className="relative pt-2">
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value={priceRange}
+              onChange={(e) => setPriceRange(parseInt(e.target.value))}
+              className="w-full h-1.5 bg-primary/10 rounded-full appearance-none cursor-pointer accent-primary"
+            />
+            <div className="flex justify-between text-[10px] font-black text-primary/20 mt-4 uppercase tracking-tighter">
+              <span>£1</span>
+              <span>£100</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Offers Filter */}
+        <div className="pt-6 border-t border-primary/5">
+          <label className="flex items-center gap-4 cursor-pointer group">
+            <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${offersOnly ? 'bg-primary border-primary shadow-lg shadow-primary/20' : 'bg-white border-primary/10'}`}>
+              {offersOnly && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
+            </div>
+            <input
+              type="checkbox"
+              className="hidden"
+              checked={offersOnly}
+              onChange={() => setOffersOnly(!offersOnly)}
+            />
+            <span className="text-sm font-black text-primary transition-all">
+              Offers Only Special
+            </span>
+          </label>
+        </div>
+
+        {/* Categories Section */}
+        <div className="pt-10 border-t border-primary/5">
+          <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-8">Quick Navigation</h4>
+          <div className="flex flex-col gap-4">
+            {CATEGORIES.map(cat => (
+              <Link
+                key={cat.id}
+                to={`/category/${cat.id}`}
+                onClick={() => isMobile && setIsSidebarOpen(false)}
+                className="group flex items-center justify-between"
+              >
+                <span className={`text-lg font-black text-primary transition-all ${id === cat.id ? 'text-primary' : 'text-primary/40 group-hover:text-primary group-hover:translate-x-1'}`}>
+                  {cat.name}
+                </span>
+                {id === cat.id && <div className="w-2 h-2 rounded-full bg-primary" />}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="container pt-40 pb-40">
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-20">
@@ -90,72 +167,8 @@ const CategoryPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
         {/* Sidebar Filter - Desktop */}
-        <aside className="hidden lg:block lg:col-span-3 space-y-12 h-fit">
-          <div className="space-y-10">
-            <div className="flex items-center justify-between pb-6 border-b border-primary/10">
-              <h3 className="text-xl font-black text-primary flex items-center gap-3">
-                Filters
-              </h3>
-              <button onClick={() => { setPriceRange(100); setOffersOnly(false); }} className="text-[10px] font-black text-primary/30 hover:text-primary uppercase tracking-widest transition-all">Reset All</button>
-            </div>
-
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <label className="text-[10px] font-black text-primary uppercase tracking-widest block">
-                  Price Ceiling (Up to £{priceRange})
-                </label>
-                <div className="relative pt-2">
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value={priceRange}
-                    onChange={(e) => setPriceRange(parseInt(e.target.value))}
-                    className="w-full h-1.5 bg-primary/10 rounded-full appearance-none cursor-pointer accent-primary"
-                  />
-                  <div className="flex justify-between text-[10px] font-black text-primary/20 mt-4 uppercase tracking-tighter">
-                    <span>£1</span>
-                    <span>£100</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-primary/5">
-                <label className="flex items-center gap-4 cursor-pointer group">
-                  <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${offersOnly ? 'bg-primary border-primary shadow-lg shadow-primary/20' : 'bg-white border-primary/10'}`}>
-                    {offersOnly && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
-                  </div>
-                  <input
-                    type="checkbox"
-                    className="hidden"
-                    checked={offersOnly}
-                    onChange={() => setOffersOnly(!offersOnly)}
-                  />
-                  <span className="text-sm font-black text-primary transition-all">
-                    Offers Only Special
-                  </span>
-                </label>
-              </div>
-
-              <div className="pt-10 border-t border-primary/5">
-                <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-8">Quick Navigation</h4>
-                <div className="flex flex-col gap-4">
-                  {CATEGORIES.map(cat => (
-                    <Link
-                      key={cat.id}
-                      to={`/category/${cat.id}`}
-                      className="group flex items-center justify-between"
-                    >
-                      <span className={`text-lg font-black text-primary transition-all ${id === cat.id ? '' : 'group-hover:translate-x-1'}`}>
-                        {cat.name}
-                      </span>
-                      {id === cat.id && <div className="w-2 h-2 rounded-full bg-primary" />}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+        <aside className="hidden lg:block lg:col-span-3 h-fit">
+          <FilterContent />
         </aside>
 
         {/* Product Grid */}
@@ -215,42 +228,21 @@ const CategoryPage = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="absolute inset-y-0 left-0 w-[90%] max-w-sm bg-white p-12 shadow-2xl flex flex-col"
+              className="absolute inset-y-0 left-0 w-[90%] max-w-sm bg-white p-10 md:p-12 shadow-2xl flex flex-col overflow-y-auto custom-scrollbar"
             >
-              <div className="flex justify-between items-center mb-16">
-                <h3 className="text-3xl font-black text-primary">Filters</h3>
+              <div className="flex justify-end mb-4">
                 <button onClick={() => setIsSidebarOpen(false)} className="p-3 bg-gray-50 rounded-2xl"><X size={24} /></button>
               </div>
 
-              <div className="flex-1 space-y-12">
-                <div className="space-y-6">
-                  <label className="text-[10px] font-black text-primary/40 uppercase tracking-widest block">Price Range (up to £{priceRange})</label>
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value={priceRange}
-                    onChange={(e) => setPriceRange(parseInt(e.target.value))}
-                    className="w-full accent-primary h-2 bg-primary/10 rounded-full"
-                  />
-                </div>
-
-                <div className="pt-6 border-t border-gray-100">
-                  <label className="flex items-center gap-4 cursor-pointer group">
-                    <div className={`w-8 h-8 rounded-xl border-2 flex items-center justify-center transition-all ${offersOnly ? 'bg-primary border-primary' : 'border-primary/10'}`}>
-                      {offersOnly && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
-                    </div>
-                    <input type="checkbox" className="hidden" checked={offersOnly} onChange={() => setOffersOnly(!offersOnly)} />
-                    <span className="text-lg font-black text-primary">Special Offers only</span>
-                  </label>
-                </div>
+              <div className="flex-1">
+                <FilterContent isMobile={true} />
               </div>
 
               <button
                 onClick={() => setIsSidebarOpen(false)}
                 className="w-full btn-primary py-5 rounded-[24px] mt-10 text-lg shadow-xl shadow-primary/20"
               >
-                Apply Filters
+                Apply Boutique Filters
               </button>
             </motion.div>
           </div>
