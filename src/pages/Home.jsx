@@ -18,7 +18,7 @@ const Home = () => {
         <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl animate-pulse delay-700" />
         
         <div className="container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -31,9 +31,9 @@ const Home = () => {
                 <div className="w-12 h-[2px] bg-primary/30" />
               </div>
               
-              <h1 className="text-6xl md:text-8xl font-black leading-[0.9] text-primary">
+              <h1 className="text-5xl md:text-8xl font-black leading-[0.9] text-primary">
                 Freshness <br />
-                <span className="text-secondary italic font-light serif text-7xl md:text-9xl">Redefined.</span>
+                <span className="text-secondary italic font-light serif text-6xl md:text-9xl">Redefined.</span>
               </h1>
               
               <p className="text-xl text-primary/60 max-w-lg leading-relaxed font-medium">
@@ -89,7 +89,7 @@ const Home = () => {
                 />
               </div>
               {/* Floating Element */}
-              <div className="absolute top-10 -right-10 bg-white p-6 rounded-[32px] shadow-2xl animate-bounce z-20 flex gap-4 items-center">
+              <div className="hidden sm:flex absolute top-10 -right-10 bg-white p-6 rounded-[32px] shadow-2xl animate-bounce z-20 gap-4 items-center">
                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-primary">
                     <Leaf size={24} />
                  </div>
@@ -98,7 +98,7 @@ const Home = () => {
                     <p className="text-sm font-black text-primary">Guaranteed Fresh</p>
                  </div>
               </div>
-              <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-[32px] shadow-2xl z-20 flex gap-4 items-center ring-1 ring-black/5 animate-fade-up">
+              <div className="hidden sm:flex absolute -bottom-10 -left-10 bg-white p-6 rounded-[32px] shadow-2xl z-20 gap-4 items-center ring-1 ring-black/5 animate-fade-up">
                  <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600">
                     <Truck size={20} />
                  </div>

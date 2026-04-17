@@ -123,11 +123,11 @@ const ProductDetail = () => {
                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary">{product.subcategory || 'Organic'}</span>
             </div>
             
-            <h1 className="text-5xl font-black text-primary leading-tight">{product.name}</h1>
+            <h1 className="text-4xl md:text-5xl font-black text-primary leading-tight">{product.name}</h1>
             
             <div className="flex items-baseline gap-4 pt-2">
-               <p className="text-5xl font-black text-primary">£{product.price}</p>
-               {product.in_offer && <p className="text-2xl text-gray-300 line-through font-bold">£{(product.price * 1.2).toFixed(2)}</p>}
+               <p className="text-4xl md:text-5xl font-black text-primary">£{product.price}</p>
+               {product.in_offer && <p className="text-xl md:text-2xl text-gray-300 line-through font-bold">£{(product.price * 1.2).toFixed(2)}</p>}
             </div>
             
             <p className="text-lg text-primary/60 font-medium leading-relaxed">

@@ -8,7 +8,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-[100vh] flex items-center justify-center container pt-32 pb-40">
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 bg-white rounded-[60px] shadow-[0_50px_100px_rgba(27,60,26,0.12)] overflow-hidden border border-gray-50 group">
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 bg-white rounded-[40px] md:rounded-[60px] shadow-[0_50px_100px_rgba(27,60,26,0.12)] overflow-hidden border border-gray-50 group">
         
         {/* Left Side - Visual Storytelling */}
         <div className="hidden lg:block relative overflow-hidden bg-primary p-20 text-white flex flex-col justify-center gap-10">
@@ -64,7 +64,7 @@ const Auth = () => {
         </div>
 
         {/* Right Side - Premium Form */}
-        <div className="p-12 md:p-24 flex flex-col justify-center">
+        <div className="p-8 md:p-16 lg:p-24 flex flex-col justify-center">
           <Link to="/" className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-gray-300 hover:text-primary mb-12 transition-all">
              <ChevronLeft size={14} strokeWidth={3} /> Back to Boutique
           </Link>

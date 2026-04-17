@@ -39,7 +39,7 @@ const Cart = () => {
          </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
         {/* Cart Items */}
         <div className="lg:col-span-8 space-y-8">
           <AnimatePresence>
@@ -50,9 +50,9 @@ const Cart = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative bg-white rounded-[40px] p-6 md:p-10 flex flex-col md:flex-row items-center gap-10 border border-gray-50 shadow-sm hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-700"
+                className="group relative bg-white rounded-[32px] md:rounded-[40px] p-6 md:p-10 flex flex-col sm:flex-row items-center gap-6 md:gap-10 border border-gray-50 shadow-sm hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-700"
               >
-                <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-[32px] overflow-hidden bg-gray-50 border border-white">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 shrink-0 rounded-[24px] md:rounded-[32px] overflow-hidden bg-gray-50 border border-white">
                    <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                 </div>
                 
@@ -123,7 +123,7 @@ const Cart = () => {
               <div className="pt-8 border-t border-primary/5 flex justify-between items-end">
                 <div className="space-y-1">
                    <p className="text-[10px] font-black text-primary/30 uppercase tracking-[0.2em]">Grand Total</p>
-                   <p className="text-5xl font-black text-primary leading-none">£{cartTotal.toFixed(2)}</p>
+                   <p className="text-4xl md:text-5xl font-black text-primary leading-none">£{cartTotal.toFixed(2)}</p>
                 </div>
               </div>
             </div>
