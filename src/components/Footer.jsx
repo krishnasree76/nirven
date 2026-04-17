@@ -16,10 +16,10 @@ const Footer = () => {
           {/* Brand & Social (lg:span-4) */}
           <div className="lg:col-span-4 space-y-10">
             <Link to="/" className="flex items-center gap-3 group/logo">
-              <div className="w-14 h-14 bg-white/10 rounded-full overflow-hidden flex items-center justify-center backdrop-blur-md border border-white/20 group-hover/logo:bg-white group-hover/logo:scale-105 transition-all duration-700">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-white/10 rounded-full overflow-hidden flex items-center justify-center backdrop-blur-md border border-white/20 group-hover/logo:bg-white group-hover/logo:scale-105 transition-all duration-700">
                 <img src={logoImg} alt="Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-3xl font-black tracking-tighter shadow-sm text-white">NIRVEN HUB</span>
+              <span className="text-xl md:text-3xl font-black tracking-tighter shadow-sm text-white">NIRVEN HUB</span>
             </Link>
             
             <p className="text-white/40 text-lg font-medium leading-relaxed max-w-sm italic">

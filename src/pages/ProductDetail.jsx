@@ -201,9 +201,9 @@ const ProductDetail = () => {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] w-full max-w-sm px-6"
+            className="fixed bottom-24 md:bottom-10 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-48px)] max-w-sm"
           >
-            <div className="bg-primary text-white p-6 rounded-[32px] shadow-2xl flex items-center gap-5 border border-white/20">
+            <div className="bg-primary text-white p-4 md:p-6 rounded-[32px] shadow-2xl flex items-center gap-4 border border-white/20">
                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                   <ShoppingBag size={24} />
                </div>

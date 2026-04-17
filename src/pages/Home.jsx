@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="space-y-40 pb-40">
       {/* Hero Section - The WOW Factor */}
-      <section className="relative h-[100vh] min-h-[800px] flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-[100vh] flex items-center pt-40 md:pt-32 pb-20 overflow-hidden">
         {/* Mesh Background Decor */}
         <div className="absolute inset-0 z-0 mesh-gradient opacity-40" />
         <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl animate-pulse" />

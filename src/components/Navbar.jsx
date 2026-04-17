@@ -130,20 +130,20 @@ const Navbar = () => {
       `}>
         <div className="absolute inset-0 bg-primary/20 backdrop-blur-3xl" onClick={() => setIsMobileMenuOpen(false)} />
         <div className={`
-          absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl p-10 flex flex-col transition-transform duration-700 ease-out
+          absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl p-6 md:p-10 flex flex-col transition-transform duration-700 ease-out
           ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
         `}>
-          <div className="flex justify-between items-center mb-16">
+          <div className="flex justify-between items-center mb-10 md:mb-16">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full overflow-hidden">
                 <img src={logoImg} alt="Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="text-2xl font-black">NIRVEN</span>
+              <span className="text-xl font-black">NIRVEN</span>
             </div>
             <button onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-gray-50 rounded-2xl"><X size={24} /></button>
           </div>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6 md:gap-10">
             {[
               { name: 'HOME', path: '/' },
               { name: 'FRUITS & VEG', path: '/category/fruits-veg' },
@@ -158,7 +158,7 @@ const Navbar = () => {
                 className="group flex items-center justify-between"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <span className="text-3xl font-black text-gray-300 group-hover:text-primary group-hover:translate-x-2 transition-all duration-500">{link.name}</span>
+                <span className="text-xl md:text-3xl font-black text-gray-300 group-hover:text-primary group-hover:translate-x-2 transition-all duration-500">{link.name}</span>
                 <ChevronRight className="opacity-0 group-hover:opacity-100 text-primary transition-all duration-500" />
               </Link>
             ))}
